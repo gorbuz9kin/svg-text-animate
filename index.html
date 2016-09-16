@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animated text</title>
+    <style>
+        HTML,
+        BODY {
+            height: 100%;
+        }
+
+        BODY {
+            background: #eee;
+            background-size: .12em 100%;
+            font: 24em/1 Arial;
+            padding: 100px;
+        }
+
+        .text--line {
+            font-size: .5em;
+        }
+
+        svg {
+            position: absolute;
+            width: 600px;
+            height: 400px;
+        }
+
+        .text-copy {
+            fill: none;
+            stroke: blue;
+            stroke-dasharray: 0% 100%;
+            stroke-width: 5px;
+            animation: stroke-offset 5s infinite linear;
+        }
+
+        @keyframes stroke-offset {
+            50% {
+                stroke-dashoffset: 20%;
+                stroke-dasharray: 80%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<svg viewBox="0 0 1000 800">
+    <symbol id="text">
+        <text text-anchor="middle"
+              x="50%"
+              y="35%"
+              class="text--line"
+        >
+            Gorbuz9kin
+        </text>
+    </symbol>
+
+    <g>
+        <use xlink:href="#text"
+             class="text-copy">
+        </use>
+    </g>
+
+
+</svg>
+</body>
+</html>
