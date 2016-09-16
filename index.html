@@ -23,12 +23,6 @@
             font-size: .5em;
         }
 
-        svg {
-            position: absolute;
-            width: 600px;
-            height: 400px;
-        }
-
         .text-copy {
             fill: none;
             stroke: blue;
@@ -44,10 +38,25 @@
             }
         }
 
+        #line {
+            stroke-dasharray: 1000;
+            /*stroke-dashoffset: 1000;*/
+            animation: dash 5s linear alternate;
+            animation-iteration-count: 1;
+        }
+        @keyframes dash {
+            0% {
+                stroke-dashoffset: 1000;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
     </style>
 </head>
 <body>
-<svg viewBox="0 0 1000 800">
+<svg viewBox="0 0 1000 800" width="600" height="400">
     <symbol id="text">
         <text text-anchor="middle"
               x="50%"
@@ -63,8 +72,15 @@
              class="text-copy">
         </use>
     </g>
-
-
 </svg>
+<br>
+<svg width="600" height="200" viewBox="0 0 1200 400">
+    <rect x="1" y="1" width="1198" height="398"
+          fill="none" stroke="blue" stroke-width="2" />
+    <line id="line" x1="100" y1="100" x2="1100" y2="100"
+          stroke-width="5"  stroke="green" />
+</svg>
+
+
 </body>
 </html>
